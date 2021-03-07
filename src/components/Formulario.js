@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Error } from './Error';
 import PropTypes from 'prop-types';
+import { Pais } from './Pais';
+import { Ciudad } from './Ciudad';
 
 export const Formulario = ({ busqueda, setBusqueda, setConsultar }) => {
 
@@ -35,36 +37,15 @@ export const Formulario = ({ busqueda, setBusqueda, setConsultar }) => {
 
             { error ? <Error mensaje="Todos los campos son obligatorios" /> : null }
 
-            <div className="input-field col s12">
-                <select 
-                    name="pais"
-                    id="pais"
-                    value={pais}
-                    onChange={handleChange}
-                >
-                    <option value="">-- Seleccione un país --</option>
-                    <option value="US">Estados Unidos</option>
-                    <option value="MX">México</option>
-                    <option value="AR">Argentina</option>
-                    <option value="CO">Colombia</option>
-                    <option value="CR">Costa Rica</option>
-                    <option value="ES">España</option>
-                    <option value="PE">Perú</option>
-                </select>
+            <Pais 
+                pais={pais}
+                handleChange={handleChange}
+            />
 
-                <label>País:</label>
-            </div>
-
-            <div className="input-field col s12">
-                <input 
-                    type="text"
-                    name="ciudad"
-                    id="ciudad"
-                    value={ciudad}
-                    onChange={handleChange}
-                />
-                <label>Ciudad:</label>
-            </div>
+            <Ciudad
+                ciudad={ciudad}
+                handleChange={handleChange}
+            />
 
            <div className="input-field col s12">
                 <input 
